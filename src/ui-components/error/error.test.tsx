@@ -14,13 +14,13 @@ describe("Error test cases", () => {
   afterAll(cleanup);
 
   it("should render Error portal", () => {
-    const fetchDataFunction = jest.fn();
+    const callbackFunction = jest.fn();
 
     render(
       <Error
         hasError
         errorMessage="errorMessage"
-        fetchDataFunction={fetchDataFunction}
+        callbackFunction={callbackFunction}
       />
     );
 
