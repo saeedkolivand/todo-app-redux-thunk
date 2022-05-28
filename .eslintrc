@@ -91,5 +91,13 @@
     "react-hooks/exhaustive-deps": "off",
     "no-restricted-syntax": "off",
     "react/require-default-props": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [",*.ts", "*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }

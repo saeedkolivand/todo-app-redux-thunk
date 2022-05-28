@@ -14,6 +14,7 @@
     "pwacompat": "^2.0.17",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
@@ -71,6 +72,7 @@
     }
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.5",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "eslint": "^8.16.0",
