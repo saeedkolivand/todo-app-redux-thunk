@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import TodosReducer from "pages/home/home.reducer";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    TodosReducer,
+  },
   devTools: process.env.NODE_ENV !== "production",
 });
 
