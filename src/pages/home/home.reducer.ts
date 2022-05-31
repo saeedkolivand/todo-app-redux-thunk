@@ -1,4 +1,4 @@
-import { CaseReducer, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 import {
   AddTodoTypesEnums,
   EditTodoTypesEnums,
@@ -18,9 +18,9 @@ const initialState: ReduxInitialStateTypes = {
   hasError: false,
 };
 
-const TodosReducer: CaseReducer = (
+const TodosReducer = (
   state = initialState,
-  action: PayloadAction<TodoTypes>
+  action: PayloadAction<TodoTypes | null>
 ) => {
   switch (action.type) {
     case AddTodoTypesEnums.ADD_TODO:
@@ -50,10 +50,10 @@ const TodosReducer: CaseReducer = (
       };
     case EditTodoTypesEnums.EDIT_TODO_SUCCESS: {
       const todo = state.todos.findIndex(
-        (value) => value.id === action.payload.id
+        (value) => value.id === action?.payload?.id
       );
-      if (todo) {
-        state.todos[todo] = action.payload;
+      if (todo && state.todos && state.todos[todo]) {
+        state.todos[todo] = <TodoTypes>action.payload;
       }
       return {
         ...state,
