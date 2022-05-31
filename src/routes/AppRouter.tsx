@@ -26,7 +26,7 @@ const AppRouter: React.FC = () => (
             element={
               <>
                 <Helmet>
-                  <title>{item.title}</title>
+                  <title>Todo | {item.title}</title>
                 </Helmet>
                 {item.element}
               </>

@@ -1,15 +1,12 @@
 .container-wrapper {
-  // todo: add spacingSizes variable or mixin
-  //padding-left: ${spacingSize.medium}px;
-  //padding-right: ${spacingSize.medium}px;
-  display: flex;
-  max-width: 960px;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 1200px;
   font-family: sans-serif;
   line-height: 1.5;
-  margin: 15vh auto auto;
+  margin: 10vh auto auto;
 
   @media (max-width: 576px) {
-    // todo: add spacingSizes variable or mixin
-    //margin: ${spacingSize.small}ch auto;
+    margin: 2ch auto;
   }
 }
