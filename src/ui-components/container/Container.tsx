@@ -17,7 +17,7 @@ const Container: React.FC<ContainerPropsTypes> = (props) => {
   } = props;
 
   return (
-    <div
+    <section
       className={`container-wrapper ${className}`}
       onClick={onClick}
       style={style}
@@ -31,7 +31,7 @@ const Container: React.FC<ContainerPropsTypes> = (props) => {
       />
 
       <div className="">{children}</div>
-    </div>
+    </section>
   );
 };
 
