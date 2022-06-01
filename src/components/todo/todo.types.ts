@@ -1,5 +1,5 @@
-import React from "react";
+import { TodoTypes } from "pages/home/home.types";
 
-export interface TodoPropsTypes extends React.HTMLProps<HTMLDivElement> {
-  status?: "active" | "completed";
+export interface TodoPropsTypes extends TodoTypes {
+  className?: string;
 }

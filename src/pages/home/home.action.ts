@@ -1,13 +1,16 @@
-import { AppDispatch } from "app/store";
-import { AddTodoTypesEnums, TodoTypes } from "./home.types";
+import { ThunkDispatch } from "redux-thunk";
+import { AnyAction } from "redux";
+import { DefaultRootStateTypes } from "app/reducers";
+import { TodoTypes } from "./home.types";
 
-export const AddTodoAction = (todo: TodoTypes) => (dispatch: AppDispatch) => {
-  dispatch({ type: AddTodoTypesEnums.ADD_TODO, payload: null });
-  if (!todo.todo) {
-    return dispatch({
-      type: AddTodoTypesEnums.ADD_TODO_FAILURE,
-      payload: null,
-    });
-  }
-  dispatch({ type: AddTodoTypesEnums.ADD_TODO_SUCCESS, payload: todo });
-};
+export const AddTodoAction =
+  (todo: TodoTypes) =>
+  (dispatch: ThunkDispatch<DefaultRootStateTypes, void, AnyAction>) => {
+    dispatch({ type: "ADD_TODO" });
+    if (!todo.todo) {
+      return dispatch({
+        type: "ADD_TODO_FAILURE",
+      });
+    }
+    dispatch({ type: "ADD_TODO_SUCCESS", payload: todo });
+  };
