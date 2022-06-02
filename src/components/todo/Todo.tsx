@@ -3,23 +3,25 @@ import Button from "ui-components/button/Button";
 import { ReactComponent as CompletedIcon } from "assets/images/tick-circle.svg";
 import { ReactComponent as DeleteIcon } from "assets/images/close-circle.svg";
 import { useDispatch } from "app/hooks";
-import { DeleteTodoTypesEnums } from "pages/home/home.types";
+import {
+  ChangeTodoStatusAction,
+  DeleteTodoAction,
+} from "pages/home/home.action";
 import { TodoPropsTypes } from "./todo.types";
 import "./todo.style.scss";
 
 const Todo: React.FC<TodoPropsTypes> = (props) => {
-  const { className, status, id, todo } = props;
+  const { className = "", status, id, todo } = props;
 
   const dispatch = useDispatch();
 
   const todoStatusClassName =
     status === "todo" ? "todo--active" : "todo--completed";
 
-  const handleDelete = () =>
-    dispatch({
-      type: DeleteTodoTypesEnums.DELETE_TODO_SUCCESS,
-      payload: { id },
-    });
+  const handleDelete = () => dispatch(DeleteTodoAction(id));
+
+  const handleChangeStatus = () =>
+    dispatch(ChangeTodoStatusAction(id, status === "todo" ? "done" : "todo"));
 
   return (
     <div className={`todo-box flex-center ${todoStatusClassName} ${className}`}>
@@ -28,7 +30,7 @@ const Todo: React.FC<TodoPropsTypes> = (props) => {
         <Button onClick={handleDelete}>
           <DeleteIcon />
         </Button>
-        <Button>
+        <Button onClick={handleChangeStatus}>
           <CompletedIcon />
         </Button>
       </div>

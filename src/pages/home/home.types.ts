@@ -2,10 +2,12 @@ import { AppRouterTypes } from "routes/appRouter.types";
 
 export interface HomePropsTypes extends AppRouterTypes {}
 
+export type TodoStatusTypes = "todo" | "done";
+
 export interface TodoTypes {
   id: string;
   todo: string;
-  status?: "todo" | "done";
+  status?: TodoStatusTypes;
 }
 
 export interface ReduxInitialStateTypes {
@@ -31,4 +33,10 @@ export enum DeleteTodoTypesEnums {
   DELETE_TODO = "DELETE_TODO",
   DELETE_TODO_SUCCESS = "DELETE_TODO_SUCCESS",
   DELETE_TODO_FAILURE = "DELETE_TODO_FAILURE",
+}
+
+export enum ChangeTodoStatusTypesEnums {
+  CHANGE_TODO_STATUS = "CHANGE_TODO_STATUS",
+  CHANGE_TODO_STATUS_SUCCESS = "CHANGE_TODO_STATUS_SUCCESS",
+  CHANGE_TODO_STATUS_FAILURE = "CHANGE_TODO_STATUS_FAILURE",
 }

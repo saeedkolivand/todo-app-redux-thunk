@@ -1,5 +1,6 @@
 import {
   AddTodoTypesEnums,
+  ChangeTodoStatusTypesEnums,
   DeleteTodoTypesEnums,
   EditTodoTypesEnums,
   ReduxInitialStateTypes,
@@ -61,18 +62,52 @@ const TodosReducer = (
         hasError: true,
       };
     }
+    case DeleteTodoTypesEnums.DELETE_TODO:
+      return {
+        ...state,
+        loading: true,
+        hasError: false,
+      };
     case DeleteTodoTypesEnums.DELETE_TODO_SUCCESS: {
       const temp: TodoTypes[] = [];
       state.todos?.forEach((item) => {
         if (item.id !== action.payload?.id) temp.push(item);
       });
+
+      console.log(action.payload?.id);
+      console.log({ temp });
       return {
-        ...state,
         todos: [...temp],
         loading: false,
+        hasError: false,
       };
     }
     case DeleteTodoTypesEnums.DELETE_TODO_FAILURE: {
+      return {
+        ...state,
+        loading: false,
+        hasError: true,
+      };
+    }
+    case ChangeTodoStatusTypesEnums.CHANGE_TODO_STATUS:
+      return {
+        ...state,
+        loading: true,
+        hasError: false,
+      };
+    case ChangeTodoStatusTypesEnums.CHANGE_TODO_STATUS_SUCCESS: {
+      state.todos?.forEach((item) => {
+        if (item.id === action.payload?.id) {
+          item.status = action.payload.status;
+        }
+      });
+
+      return {
+        ...state,
+        loading: false,
+      };
+    }
+    case ChangeTodoStatusTypesEnums.CHANGE_TODO_STATUS_FAILURE: {
       return {
         ...state,
         loading: false,
