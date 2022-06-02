@@ -1,0 +1,20 @@
+.todo-box {
+  width: 100%;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  justify-content: space-between;
+
+  &.todo--active {
+    border: 1px solid #3eaeff;
+  }
+
+  &.todo--completed {
+    border: 1px solid #38c775;
+    background: rgba(56, 199, 117, 0.1);
+  }
+
+  .todo-box--actions-wrapper {
+    gap: 12px;
+  }
+}

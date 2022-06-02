@@ -69,6 +69,7 @@
     "default-param-last": "off",
     "react/destructuring-assignment": "warn",
     "react/jsx-no-bind": "off",
+    "react/button-has-type": "off",
     "no-debugger": "off",
     "no-console": "off",
     "no-param-reassign": "off",
