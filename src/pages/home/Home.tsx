@@ -24,6 +24,7 @@ const Home: React.FC<HomePropsTypes> = () => {
 
   const handleAddTodo = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setTodoValue("");
     dispatch(
       AddTodoAction({
         id: uuidv4(),

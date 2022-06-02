@@ -61,22 +61,14 @@ const TodosReducer = (
         hasError: true,
       };
     }
-    case DeleteTodoTypesEnums.DELETE_TODO:
-      return {
-        ...state,
-        loading: true,
-        hasError: false,
-      };
     case DeleteTodoTypesEnums.DELETE_TODO_SUCCESS: {
-      const todo = state.todos?.findIndex(
-        (value) => value.id === action.payload?.id
-      );
-      if (todo && state.todos && state.todos[todo]) {
-        console.log("sdasd");
-        state.todos.splice(0, todo);
-      }
+      const temp: TodoTypes[] = [];
+      state.todos?.forEach((item) => {
+        if (item.id !== action.payload?.id) temp.push(item);
+      });
       return {
         ...state,
+        todos: [...temp],
         loading: false,
       };
     }
