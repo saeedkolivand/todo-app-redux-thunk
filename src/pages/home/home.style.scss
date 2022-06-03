@@ -1,10 +1,12 @@
+@import "../../assets/styles/variables";
+
 .home-wrapper {
   .home-wrapper--header {
-    font-size: 2rem;
+    font-size: $largeSize;
     text-align: center;
   }
 
   .home-wrapper--todo-input {
-    gap: 12px;
+    gap: $mediumSize;
   }
 }

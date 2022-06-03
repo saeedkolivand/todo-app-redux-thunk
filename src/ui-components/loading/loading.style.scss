@@ -1,3 +1,5 @@
+@import "../../assets/styles/variables";
+
 .loading-background {
   position: fixed;
   width: 100vw;
@@ -46,7 +48,7 @@
     height: 70px;
     top: 35%;
     color: #000;
-    border-radius: 12px;
+    border-radius: $mediumSize;
     background-color: #fff;
 
     .loading-wrapper--loading-body__spinner {

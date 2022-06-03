@@ -1,6 +1,8 @@
+@import "../../assets/styles/variables";
+
 .container-wrapper {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: $largeSize;
+  padding-right: $largeSize;
   max-width: 1200px;
   font-family: sans-serif;
   line-height: 1.5;

@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import Container from "ui-components/container/Container";
 import Input from "ui-components/input/Input";
 import Divider from "ui-components/divider/Divider";
@@ -26,9 +26,12 @@ const Home: React.FC<HomePropsTypes> = () => {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setTodoValue("");
+  }, [todos]);
+
   const handleAddTodo = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setTodoValue("");
     dispatch(
       AddTodoAction({
         id: uuidv4(),
@@ -54,6 +57,7 @@ const Home: React.FC<HomePropsTypes> = () => {
           value={todoValue}
           placeholder="Add new todo"
           onChange={handleInputChange}
+          required
         />
         <Button type="submit">Add</Button>
       </form>
