@@ -74,8 +74,6 @@ const TodosReducer = (
         if (item.id !== action.payload?.id) temp.push(item);
       });
 
-      console.log(action.payload?.id);
-      console.log({ temp });
       return {
         todos: [...temp],
         loading: false,

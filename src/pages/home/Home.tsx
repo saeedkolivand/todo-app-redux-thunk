@@ -36,8 +36,11 @@ const Home: React.FC<HomePropsTypes> = () => {
 
   return (
     <Container className="home-wrapper" loading={loading} hasError={hasError}>
-      <h1 className="home--header">Todos</h1>
-      <form onSubmit={handleAddTodo} className="flex-center">
+      <h1 className="home-wrapper--header">Todos</h1>
+      <form
+        onSubmit={handleAddTodo}
+        className="home-wrapper--todo-input flex-center"
+      >
         <Input
           value={todoValue}
           placeholder="Add new todo"
