@@ -1,13 +1,16 @@
 import { cleanup } from "@testing-library/react";
-import { initLoadingPortal } from "ui-components/loading/loading.test";
-import { initErrorModalPortal } from "ui-components/error/error.test";
+import store from "app/store";
 
-describe("Home page tests", () => {
-  beforeAll(() => {
-    initLoadingPortal();
-    initErrorModalPortal();
-  });
+describe("redux tests", () => {
   afterAll(cleanup);
 
-  it("should render new todo on screen", () => {});
+  it("should return the initial state", () => {
+    expect(store.getState()).toEqual({
+      TodosReducer: {
+        todos: [],
+        loading: false,
+        hasError: false,
+      },
+    });
+  });
 });

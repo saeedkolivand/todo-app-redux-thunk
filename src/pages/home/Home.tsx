@@ -6,9 +6,13 @@ import Todo from "components/todo/Todo";
 import { useDispatch, useSelector } from "app/hooks";
 import Button from "ui-components/button/Button";
 import { v4 as uuidv4 } from "uuid";
-import { HomePropsTypes } from "./home.types";
+import { HomePropsTypes, TodoStatusTypes } from "./home.types";
 import "./home.style.scss";
-import { AddTodoAction } from "./home.action";
+import {
+  AddTodoAction,
+  ChangeTodoStatusAction,
+  DeleteTodoAction,
+} from "./home.action";
 
 const Home: React.FC<HomePropsTypes> = () => {
   const { todos, hasError, loading } = useSelector(
@@ -34,6 +38,11 @@ const Home: React.FC<HomePropsTypes> = () => {
     );
   };
 
+  const handleDeleteTodo = (id: string) => dispatch(DeleteTodoAction(id));
+
+  const handleChangeStatus = (id: string, status: TodoStatusTypes) =>
+    dispatch(ChangeTodoStatusAction(id, status));
+
   return (
     <Container className="home-wrapper" loading={loading} hasError={hasError}>
       <h1 className="home-wrapper--header">Todos</h1>
@@ -50,7 +59,12 @@ const Home: React.FC<HomePropsTypes> = () => {
       </form>
       <Divider />
       {todos?.map((todo) => (
-        <Todo {...todo} key={todo.id} />
+        <Todo
+          {...todo}
+          key={todo.id}
+          deleteCallback={handleDeleteTodo}
+          completedCallback={handleChangeStatus}
+        />
       ))}
     </Container>
   );
