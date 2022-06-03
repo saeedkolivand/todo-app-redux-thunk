@@ -11,9 +11,18 @@ describe("Todo test cases", () => {
   it("should render todo on screen with passed props", () => {
     const MockTodo = (props: { todo: string }) => {
       const { todo } = props;
+
+      const deletedCallback = jest.fn();
+      const completedCallback = jest.fn();
+
       return (
         <Provider store={store}>
-          <Todo id={uuidv4()} todo={todo} />
+          <Todo
+            id={uuidv4()}
+            todo={todo}
+            completedCallback={completedCallback}
+            deleteCallback={deletedCallback}
+          />
         </Provider>
       );
     };
