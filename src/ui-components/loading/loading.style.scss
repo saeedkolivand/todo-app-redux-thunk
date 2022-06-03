@@ -46,8 +46,7 @@
     height: 70px;
     top: 35%;
     color: #000;
-    // todo: add spacingSize variable or mixin
-    //border-radius: ${spacingSize.small}px;
+    border-radius: 12px;
     background-color: #fff;
 
     .loading-wrapper--loading-body__spinner {

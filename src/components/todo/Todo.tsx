@@ -25,7 +25,9 @@ const Todo: React.FC<TodoPropsTypes> = (props) => {
 
   return (
     <div className={`todo-box flex-center ${todoStatusClassName} ${className}`}>
-      <div className="todo-box--title">{todo}</div>
+      <div className="todo-box--title" aria-label="todo-title">
+        {todo}
+      </div>
       <div className="todo-box--actions-wrapper flex-center">
         <Button onClick={handleDelete}>
           <DeleteIcon />

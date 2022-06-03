@@ -13,6 +13,11 @@
     background: rgba(56, 199, 117, 0.1);
   }
 
+  .todo-box--title {
+    padding-inline-end: 10px;
+    word-break: break-all;
+  }
+
   .todo-box--actions-wrapper {
     gap: 12px;
   }
