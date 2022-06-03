@@ -1,6 +1,10 @@
 .home-wrapper {
-  .home--header {
+  .home-wrapper--header {
     font-size: 2rem;
     text-align: center;
+  }
+
+  .home-wrapper--todo-input {
+    gap: 12px;
   }
 }

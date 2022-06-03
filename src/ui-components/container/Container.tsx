@@ -30,7 +30,7 @@ const Container: React.FC<ContainerPropsTypes> = (props) => {
         errorMessage={errorMessage}
       />
 
-      <div className="">{children}</div>
+      {children}
     </section>
   );
 };
