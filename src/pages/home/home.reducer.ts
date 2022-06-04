@@ -2,7 +2,6 @@ import {
   AddTodoTypesEnums,
   ChangeTodoStatusTypesEnums,
   DeleteTodoTypesEnums,
-  EditTodoTypesEnums,
   ReduxInitialStateTypes,
   TodoTypes,
 } from "./home.types";
@@ -31,31 +30,6 @@ const TodosReducer = (
       };
     }
     case AddTodoTypesEnums.ADD_TODO_FAILURE: {
-      return {
-        ...state,
-        loading: false,
-        hasError: true,
-      };
-    }
-    case EditTodoTypesEnums.EDIT_TODO:
-      return {
-        ...state,
-        loading: true,
-        hasError: false,
-      };
-    case EditTodoTypesEnums.EDIT_TODO_SUCCESS: {
-      const todo = state.todos!.findIndex(
-        (value) => value.id === action?.payload?.id
-      );
-      if (todo && state.todos && state.todos[todo]) {
-        state.todos[todo] = <TodoTypes>action.payload;
-      }
-      return {
-        ...state,
-        loading: false,
-      };
-    }
-    case EditTodoTypesEnums.EDIT_TODO_FAILURE: {
       return {
         ...state,
         loading: false,
